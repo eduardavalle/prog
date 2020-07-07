@@ -4,10 +4,10 @@ from modelo_sapato import Sapato
 @app.route("/")
 def inicio():
     return 'Sistema de cadastro de sapatos. '+\
-        '<a href="/listar_pessoas">Operação listar</a>'
+        '<a href="/listar_sapatos">Operação listar</a>'
 
-@app.route("/listar_pessoas")
-def listar_pessoas():
+@app.route("/listar_sapatos")
+def listar_sapatos():
     sapato = db.session.query(Sapato).all()
     sapato_em_json = [ x.json() for x in sapato ]
     resposta = jsonify(sapato_em_json)
